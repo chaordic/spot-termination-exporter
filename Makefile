@@ -48,6 +48,10 @@ tarball: promu
 	@echo ">> building release tarball"
 	@$(PROMU) tarball --prefix $(PREFIX) $(BIN_DIR)
 
+release: promu build tarball
+	@echo ">> release files to Github"
+	@$(PROMU) release -v $(BIN_DIR) *.gz
+
 docker:
 	@echo ">> building docker image"
 	@docker build -t "$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)" .
