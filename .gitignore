@@ -3,4 +3,4 @@
 .tarballs
 .DS_STORE
 spot-termination-exporter
-
+dist/
