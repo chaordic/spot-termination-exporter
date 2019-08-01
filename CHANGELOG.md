@@ -2,6 +2,7 @@
 
 * [CHORE] create CHANGELOG.md
 * [CHORE] create target `release` on Makefile
+* [CHORE] create target `tag` on Makefile
 * [CHORE] bump to 1.0.2
 * [FIX] promu releaser
 
