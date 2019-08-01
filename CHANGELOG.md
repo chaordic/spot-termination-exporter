@@ -1,7 +1,7 @@
 ## 1.0.1 / 2019-05-28
 
 * [CHORE] create CHANGELOG.md
-* [CHORE] create target `release` on Makefile 
+* [CHORE] create target `release` on Makefile
 * [CHORE] bump to 1.0.2
 * [FIX] promu releaser
 
