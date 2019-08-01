@@ -16,8 +16,8 @@ FIRST_GOPATH := $(firstword $(subst :, ,$(GOPATH)))
 PROMU        := $(FIRST_GOPATH)/bin/promu
 pkgs          = $(shell $(GO) list ./... | grep -v /vendor/)
 
-PREFIX                  ?= $(shell pwd)
-BIN_DIR                 ?= $(shell pwd)
+PREFIX                  ?= $(shell pwd)/dist
+BIN_DIR                 ?= $(shell pwd)/dist
 DOCKER_IMAGE_NAME       ?= spot-termination-exporter
 DOCKER_IMAGE_TAG        ?= $(subst /,-,$(shell git rev-parse --abbrev-ref HEAD))
 
@@ -50,7 +50,7 @@ tarball: promu
 
 release: promu build tarball
 	@echo ">> release files to Github"
-	@$(PROMU) release -v *.gz
+	@$(PROMU) release -v $(PREFIX)/*.gz
 
 tag:
 	@test ! -z "$(message)" || ( \
@@ -58,8 +58,8 @@ tag:
 		echo "\tEg: make tag message='bump to version 1.0.2'\n"; \
 		exit 1; \
 	)
-	git tag -a v$(shell cat VERSION) -m "$(message)"
-	git push origin v$(shell cat VERSION)
+	git tag -a $(shell cat VERSION) -m "$(message)"
+	git push origin $(shell cat VERSION)
 
 docker:
 	@echo ">> building docker image"

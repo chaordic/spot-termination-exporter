@@ -1,4 +1,4 @@
-## 1.0.1 / 2019-05-28
+## 1.0.2 / 2019-08-01
 
 * [CHORE] create CHANGELOG.md
 * [CHORE] create target `release` on Makefile
@@ -6,7 +6,7 @@
 * [CHORE] bump to 1.0.2
 * [FIX] promu releaser
 
-## 1.0.1 / 2019-05-28
+## v1.0.1 / 2019-05-28
 
 * [FIX] Fix promu build. Merge pull request #11 from banzaicloud/fix-promu
 
