@@ -53,13 +53,13 @@ release: promu build tarball
 	@$(PROMU) release -v $(BIN_DIR) *.gz
 
 tag:
-	@test -z "$(message)" && ( \
+	@test ! -z "$(message)" || ( \
 		echo "\tmissing 'message' argument used by command: git tag -m 'message'"; \
 		echo "\tEg: make tag message='bump to version 1.0.2'\n"; \
 		exit 1; \
 	)
-    git tag -a $(shell cat VERSION) -m "$(message)"
-    git push origin $(shell cat VERSION)
+	git tag -a $(shell cat VERSION) -m "$(message)"
+	git push origin $(shell cat VERSION)
 
 docker:
 	@echo ">> building docker image"
