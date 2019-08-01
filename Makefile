@@ -50,7 +50,7 @@ tarball: promu
 
 release: promu build tarball
 	@echo ">> release files to Github"
-	@$(PROMU) release -v $(BIN_DIR) *.gz
+	@$(PROMU) release -v *.gz
 
 tag:
 	@test ! -z "$(message)" || ( \
@@ -58,8 +58,8 @@ tag:
 		echo "\tEg: make tag message='bump to version 1.0.2'\n"; \
 		exit 1; \
 	)
-	git tag -a $(shell cat VERSION) -m "$(message)"
-	git push origin $(shell cat VERSION)
+	git tag -a v$(shell cat VERSION) -m "$(message)"
+	git push origin v$(shell cat VERSION)
 
 docker:
 	@echo ">> building docker image"
